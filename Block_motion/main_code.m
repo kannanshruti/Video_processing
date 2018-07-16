@@ -1,4 +1,5 @@
 %%
+% Description: Calculates Block motion vectors for a pair of images
 clc; close all; clear
 img1 = imread('container_1.tif');
 img2 = imread('container_30.tif');
