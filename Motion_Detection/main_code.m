@@ -1,4 +1,5 @@
-% Description: 
+% Description: Motion detection using fixed thresholding, and variable
+% thresholding using Markov Random fields (order 1 and 2)
 %% Image reading
 
 img1_a = imread('missa_1.tif');
@@ -11,7 +12,6 @@ img3_a = imread('coastguard_90.tif');
 img3_b = imread('coastguard_95.tif');
 
 %% Fixed Threshold
-
 variance_s = 15;
 theta = 1;
 
@@ -20,7 +20,6 @@ fixed_res2 = fixed_threshold(img2_a, img2_b, variance_s, theta);
 fixed_res3 = fixed_threshold(img3_a, img3_b, variance_s, theta);
 
 %% Variable threshold - 1st order
-
 sigma_ratio = 5;
 T = 10;
 var1_res1 = variable_thres_1(img1_a, img1_b, sigma_ratio, T, variance_s, theta);
@@ -28,13 +27,11 @@ var1_res2 = variable_thres_1(img2_a, img2_b, sigma_ratio, T, variance_s, theta);
 var1_res3 = variable_thres_1(img3_a, img3_b, sigma_ratio, T, variance_s, theta);
 
 %% Variable threshold - 2nd order
-
 var2_res1 = variable_thres_2(img1_a, img1_b, sigma_ratio, T, variance_s, theta);
 var2_res2 = variable_thres_2(img2_a, img2_b, sigma_ratio, T, variance_s, theta);
 var2_res3 = variable_thres_2(img3_a, img3_b, sigma_ratio, T, variance_s, theta);
 
 %% Plots
-
 figure(1);
 subplot(2,2,1), subimage(img1_a);
 title('Original missa');
